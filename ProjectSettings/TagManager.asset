@@ -9,6 +9,7 @@ TagManager:
   - Hammer
   - Collectable
   - Hitable
+  - Readable
   layers:
   - Default
   - TransparentFX
