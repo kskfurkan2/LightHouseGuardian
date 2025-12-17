@@ -10,6 +10,7 @@ TagManager:
   - Collectable
   - Hitable
   - Readable
+  - Wood
   layers:
   - Default
   - TransparentFX
