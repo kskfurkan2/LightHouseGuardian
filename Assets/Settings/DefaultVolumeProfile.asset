@@ -763,6 +763,29 @@ MonoBehaviour:
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+--- !u!114 &-1312696093656908183
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720855a007109dd4190a93defd8e3bb9, type: 3}
+  m_Name: PWetLensOverride
+  m_EditorClassIdentifier: Assembly-CSharp::Pinwheel.Poseidon.FX.Universal.PWetLensOverride
+  active: 1
+  normalMap:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  strength:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &-1216621516061285780
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -905,6 +928,8 @@ MonoBehaviour:
   - {fileID: 3077397023839846}
   - {fileID: -6742634126501645254}
   - {fileID: 1678457614508253253}
+  - {fileID: 3313584652130185862}
+  - {fileID: -1312696093656908183}
 --- !u!114 &3077397023839846
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1314,6 +1339,66 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   saturation:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &3313584652130185862
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737bb5c030cbe824a900bc5999ac94f9, type: 3}
+  m_Name: PUnderwaterOverride
+  m_EditorClassIdentifier: Assembly-CSharp::Pinwheel.Poseidon.FX.Universal.PUnderwaterOverride
+  active: 1
+  waterLevel:
+    m_OverrideState: 1
+    m_Value: 0
+  maxDepth:
+    m_OverrideState: 1
+    m_Value: 10
+  surfaceColorBoost:
+    m_OverrideState: 1
+    m_Value: 1
+  shallowFogColor:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 1, a: 0.5}
+  deepFogColor:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 1, a: 1}
+  viewDistance:
+    m_OverrideState: 1
+    m_Value: 40
+  enableCaustic:
+    m_OverrideState: 1
+    m_Value: 0
+  causticTexture:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  causticSize:
+    m_OverrideState: 1
+    m_Value: 10
+  causticStrength:
+    m_OverrideState: 1
+    m_Value: 1
+  enableDistortion:
+    m_OverrideState: 1
+    m_Value: 0
+  distortionNormalMap:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+    dimension: 1
+  distortionStrength:
+    m_OverrideState: 1
+    m_Value: 1
+  waterFlowSpeed:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
     m_OverrideState: 1
     m_Value: 0
 --- !u!114 &3959858460715838825
