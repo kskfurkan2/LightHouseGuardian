@@ -15,9 +15,9 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 0.18
   contrast:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 6
   colorFilter:
     m_OverrideState: 0
@@ -26,8 +26,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   saturation:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: -4.3
 --- !u!114 &-5646364978063212946
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -46,13 +46,13 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.65
+    m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 7.86
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.304
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -85,11 +85,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: TFF_Dusk_1
+  m_Name: Night
   m_EditorClassIdentifier: 
   components:
   - {fileID: -5646364978063212946}
-  - {fileID: 6738271326647136253}
   - {fileID: 4737165417429899096}
   - {fileID: -7827806769154657287}
   - {fileID: 6118115892689085527}
@@ -112,7 +111,7 @@ MonoBehaviour:
     dimension: 1
   contribution:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.371
 --- !u!114 &6118115892689085527
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -134,26 +133,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.232
   smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
-  rounded:
-    m_OverrideState: 0
-    m_Value: 0
---- !u!114 &6738271326647136253
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
-  m_Name: ChromaticAberration
-  m_EditorClassIdentifier: 
-  active: 1
-  intensity:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0.256
+  rounded:
+    m_OverrideState: 1
+    m_Value: 1
