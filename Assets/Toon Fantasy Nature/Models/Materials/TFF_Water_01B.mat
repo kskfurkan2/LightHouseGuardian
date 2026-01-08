@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 21b2f218fa38d334daf2f2012e6c546d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _WAVES_ON
   m_InvalidKeywords:
   - _LIGHTS_ON
   - _MAINFOAMPOWER_ON
@@ -53,13 +54,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _FoamDistance: 0.025
-    - _FoamHardness: 0.33
-    - _FoamOpacity: 0.65
+    - _FoamDistance: 1
+    - _FoamHardness: 0.06
+    - _FoamOpacity: 0.468
     - _FoamScale: 0.25
-    - _FoamSpeed: 0.125
+    - _FoamSpeed: 0.01
     - _FresnelIntensity: 0.77
-    - _Opacity: 0.5
+    - _Opacity: 0
     - _OpacityDepth: 8.5
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -71,9 +72,9 @@ Material:
     - _ReflectionsScrollSpeed: 0.025
     - _ShallowColorDepth: 5
     - _WaveAmplitude: 0.5
-    - _WaveIntensity: 0.15
+    - _WaveIntensity: 0.023
     - _WaveSpeed: 1
-    - _Waves: 0
+    - _Waves: 1
     - __dirty: 0
     m_Colors:
     - _DeepColor: {r: 0.38431373, g: 0.5065575, b: 0.54901963, a: 1}
