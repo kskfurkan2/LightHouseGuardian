@@ -820,6 +820,9 @@ MonoBehaviour:
   highQualityFiltering:
     m_OverrideState: 1
     m_Value: 0
+  filter:
+    m_OverrideState: 0
+    m_Value: 0
   downscale:
     m_OverrideState: 1
     m_Value: 0
@@ -928,8 +931,6 @@ MonoBehaviour:
   - {fileID: 3077397023839846}
   - {fileID: -6742634126501645254}
   - {fileID: 1678457614508253253}
-  - {fileID: 3313584652130185862}
-  - {fileID: -1312696093656908183}
 --- !u!114 &3077397023839846
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1626,6 +1627,9 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   highQualityFiltering:
+    m_OverrideState: 1
+    m_Value: 0
+  filter:
     m_OverrideState: 1
     m_Value: 0
   downscale:
