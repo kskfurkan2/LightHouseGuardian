@@ -13,8 +13,10 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _BACKGROUNDMODE_COLORS
+  - _ENABLEBUILTINFOG_ON
   - _ENABLECLOUDSROTATION_ON
   - _ENABLECLOUDS_ON
+  - _ENABLEMOON_ON
   - _ENABLEPATTERNOVERLAY_ON
   - _ENABLESUN_ON
   m_InvalidKeywords:
@@ -84,7 +86,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MoonTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 16d300134c867234588aeecccb9392b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
@@ -181,7 +183,7 @@ Material:
     - _CloudHeight: 0
     - _CloudsAlpha: 0
     - _CloudsCat: 1
-    - _CloudsHeight: 0.1
+    - _CloudsHeight: 0.223
     - _CloudsIntensity: 1
     - _CloudsLitbySun: 0
     - _CloudsRotation: 0
@@ -195,13 +197,13 @@ Material:
     - _DisableRotation: 0
     - _DstBlend: 0
     - _Enable1Twinkling: 0
-    - _EnableBuiltinFog: 0
+    - _EnableBuiltinFog: 1
     - _EnableClouds: 1
     - _EnableCloudsColormap: 0
     - _EnableCloudsRotation: 1
     - _EnableDirectionLight: 1
     - _EnableFogMessage: 0
-    - _EnableMoon: 0
+    - _EnableMoon: 1
     - _EnablePatternOverlay: 1
     - _EnableSkyPatternOverlay: 0
     - _EnableStars: 0
@@ -267,7 +269,7 @@ Material:
     - _SunIntensity: 2
     - _SunRadiusB: 0
     - _SunRadoisA: 0.463
-    - _SunSize: 0.8
+    - _SunSize: 0.482
     - _ToggleSwitch0: 0
     - _TwinklingContrast: 0
     - _TwinklingSpeed: 0
