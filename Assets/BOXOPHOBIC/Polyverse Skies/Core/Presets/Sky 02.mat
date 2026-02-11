@@ -13,7 +13,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _BACKGROUNDMODE_COLORS
-  - _ENABLEBUILTINFOG_ON
   - _ENABLECLOUDSROTATION_ON
   - _ENABLECLOUDS_ON
   - _ENABLEMOON_ON
@@ -197,7 +196,7 @@ Material:
     - _DisableRotation: 0
     - _DstBlend: 0
     - _Enable1Twinkling: 0
-    - _EnableBuiltinFog: 1
+    - _EnableBuiltinFog: 0
     - _EnableClouds: 1
     - _EnableCloudsColormap: 0
     - _EnableCloudsRotation: 1
@@ -250,7 +249,7 @@ Material:
     - _SkyPatternContrast: 0.477
     - _SkyPatternOverlay: 0
     - _SkyboxCat: 1
-    - _SkyboxOffset: 0
+    - _SkyboxOffset: -0.054
     - _SkyboxRotation: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

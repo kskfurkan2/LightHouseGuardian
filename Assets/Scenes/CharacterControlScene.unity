@@ -18549,61 +18549,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac79535303114e947a7a1a19099793d2, type: 3}
---- !u!1 &527844138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 527844140}
-  - component: {fileID: 527844139}
-  m_Layer: 0
-  m_Name: Poliverse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &527844139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527844138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdf5921ba9788546a0a1fb47a5f6f44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Boxophobic.PolyverseSkies.Runtime::PolyverseSkiesAsset.PolyverseSkies
-  styledBanner: 0
-  categoryScene: 1
-  sunDirection: {fileID: 1603747703}
-  moonDirection: {fileID: 766992178}
-  categoryTime: 1
-  categoryTimeMessage: 1
-  skyboxDay: {fileID: 2100000, guid: 60dd2e7b10f2ce74e9c4478520e3f06a, type: 2}
-  skyboxNight: {fileID: 2100000, guid: d0523d8917957bb429a32997cb0e52b2, type: 2}
-  timeOfDay: 0
-  updateLighting: 1
-  styledSpace0: 0
---- !u!4 &527844140
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527844138}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20271, y: 0.97906, z: 2.06866}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &534532964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7020329320057389629, guid: b86338478bfabb8458d888d2c6cbc8ca, type: 3}
@@ -32058,7 +32003,7 @@ GameObject:
   - component: {fileID: 1087043550}
   - component: {fileID: 1087043549}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DayControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32078,6 +32023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayControl
   dayDuration: 30
   timeOfDay: 0.25
+  autoTimeProgression: 0
   sunLight: {fileID: 1603747704}
   maxIntensity: 1.25
   sunColor:
@@ -32146,6 +32092,8 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  dayFogColor: {r: 0.7294118, g: 0.84313726, b: 1, a: 1}
+  nightFogColor: {r: 0.14117648, g: 0.4, b: 0.6862745, a: 1}
   skyboxCycle:
   - phaseName: 
     time: 0
@@ -91775,6 +91723,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1087043550}
   - {fileID: 1126026206}
   - {fileID: 1603747705}
   - {fileID: 766992181}
@@ -91812,5 +91761,3 @@ SceneRoots:
   - {fileID: 580017762}
   - {fileID: 1554817944}
   - {fileID: 474852790}
-  - {fileID: 527844140}
-  - {fileID: 1087043550}

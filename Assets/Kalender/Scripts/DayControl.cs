@@ -13,6 +13,9 @@ public class DayControl : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float timeOfDay = 0.25f;
 
+    [Tooltip("If true, time advances automatically based on Day Duration.")]
+    [SerializeField] private bool autoTimeProgression = false;
+
     /// <summary>
     /// Public property for Visual Scripting access.
     /// Gets or sets the current time of day (0.0 to 1.0).
@@ -31,6 +34,8 @@ public class DayControl : MonoBehaviour
 
     [Header("Ambient Settings")]
     [SerializeField] private Gradient ambientColor;
+    [SerializeField] private Color dayFogColor = new Color(0.5f, 0.6f, 0.7f, 1f);
+    [SerializeField] private Color nightFogColor = new Color(0.02f, 0.02f, 0.05f, 1f);
 
     [Header("Skybox Settings")]
     [SerializeField] private List<SkyboxTimeMapping> skyboxCycle;
@@ -66,6 +71,10 @@ public class DayControl : MonoBehaviour
             "_CloudsLightColor", "_CloudsShadowColor", 
             "_FogColor", "_MoonColor"
         };
+        
+        // Reset Fog Colors to a reasonable default
+        dayFogColor = new Color(0.5f, 0.6f, 0.7f, 1f); // Bluish Gray
+        nightFogColor = new Color(0.02f, 0.02f, 0.05f, 1f); // Deep Blue Black
         
         Debug.Log("DayControl: Reset properties.");
     }
@@ -143,10 +152,13 @@ public class DayControl : MonoBehaviour
 
     private void UpdateTime()
     {
-        timeOfDay += Time.deltaTime / dayDuration;
-        if (timeOfDay >= 1f)
+        if (autoTimeProgression)
         {
-            timeOfDay -= 1f;
+            timeOfDay += Time.deltaTime / dayDuration;
+            if (timeOfDay >= 1f)
+            {
+                timeOfDay -= 1f;
+            }
         }
     }
 
@@ -189,7 +201,25 @@ public class DayControl : MonoBehaviour
             RenderSettings.ambientLight = ambientColor.Evaluate(timeOfDay);
         }
 
+        // Blend Fog Color
+        // We use the sun intensity curve to determine if it is day or night
+        // If curve is missing, we approximate based on time (0.25 to 0.75 is day)
+        float blendFactor = 0f;
+        if (sunIntensityCurve != null && sunIntensityCurve.length > 0)
+        {
+             blendFactor = sunIntensityCurve.Evaluate(timeOfDay);
+        }
+        else
+        {
+            // Simple fallback: 0.0 at midnight, 1.0 at noon
+            // 0.0->0.25 (Night->Day), 0.75->1.0 (Day->Night)
+            float t = timeOfDay;
+            if (t < 0.25f) blendFactor = t * 4f; // 0 to 1
+            else if (t < 0.75f) blendFactor = 1f;
+            else blendFactor = 1f - ((t - 0.75f) * 4f); // 1 to 0
+        }
 
+        RenderSettings.fogColor = Color.Lerp(nightFogColor, dayFogColor, blendFactor);
 
         // Update Skybox Blending
         if (skyboxCycle != null && skyboxCycle.Count > 0 && runtimeSkyboxMaterial != null)
