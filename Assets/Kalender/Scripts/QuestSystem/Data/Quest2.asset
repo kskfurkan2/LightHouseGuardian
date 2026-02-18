@@ -18,4 +18,4 @@ MonoBehaviour:
   prerequisites:
   - {fileID: 11400000, guid: c26a24a799e09484d89cdd471ba8b303, type: 2}
   rewardAmount: 0
-  state: 3
+  state: 0
