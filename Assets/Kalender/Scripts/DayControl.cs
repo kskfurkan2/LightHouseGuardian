@@ -72,6 +72,12 @@ public class DayControl : MonoBehaviour
             "_FogColor", "_MoonColor"
         };
         
+        // Cache IDs immediately after reset if playing
+        if (Application.isPlaying)
+        {
+            CacheShaderPropertyIDs();
+        }
+        
         // Reset Fog Colors to a reasonable default
         dayFogColor = new Color(0.5f, 0.6f, 0.7f, 1f); // Bluish Gray
         nightFogColor = new Color(0.02f, 0.02f, 0.05f, 1f); // Deep Blue Black
@@ -80,6 +86,31 @@ public class DayControl : MonoBehaviour
     }
 
     private Material runtimeSkyboxMaterial;
+    
+    // Optimization: Cache Shader Property IDs
+    private int[] floatPropertyIDs;
+    private int[] colorPropertyIDs;
+    
+    // Optimization: Throttle DynamicGI updates
+    private float lastEnvironmentUpdateTime;
+    private const float ENVIRONMENT_UPDATE_INTERVAL = 0.5f;
+
+    private void CacheShaderPropertyIDs()
+    {
+        if (floatProperties != null)
+        {
+            floatPropertyIDs = new int[floatProperties.Length];
+            for (int i = 0; i < floatProperties.Length; i++)
+                floatPropertyIDs[i] = Shader.PropertyToID(floatProperties[i]);
+        }
+
+        if (colorProperties != null)
+        {
+            colorPropertyIDs = new int[colorProperties.Length];
+            for (int i = 0; i < colorProperties.Length; i++)
+                colorPropertyIDs[i] = Shader.PropertyToID(colorProperties[i]);
+        }
+    }
 
     [System.Serializable]
     public struct SkyboxTimeMapping
@@ -141,6 +172,9 @@ public class DayControl : MonoBehaviour
 
             RenderSettings.skybox = runtimeSkyboxMaterial;
         }
+
+        CacheShaderPropertyIDs();
+        lastEnvironmentUpdateTime = Time.time;
     }
 
     private void Update()
@@ -267,28 +301,39 @@ public class DayControl : MonoBehaviour
             if (mat1 != null && mat2 != null)
             {
                 // Blend Float Properties
-                foreach (string prop in floatProperties)
+                if (floatPropertyIDs != null && floatPropertyIDs.Length == floatProperties.Length)
                 {
-                    if (mat1.HasProperty(prop) && mat2.HasProperty(prop))
+                    for (int i = 0; i < floatPropertyIDs.Length; i++)
                     {
-                        float val1 = mat1.GetFloat(prop);
-                        float val2 = mat2.GetFloat(prop);
-                        runtimeSkyboxMaterial.SetFloat(prop, Mathf.Lerp(val1, val2, blend));
+                        if (mat1.HasProperty(floatPropertyIDs[i]) && mat2.HasProperty(floatPropertyIDs[i]))
+                        {
+                            float val1 = mat1.GetFloat(floatPropertyIDs[i]);
+                            float val2 = mat2.GetFloat(floatPropertyIDs[i]);
+                            runtimeSkyboxMaterial.SetFloat(floatPropertyIDs[i], Mathf.Lerp(val1, val2, blend));
+                        }
                     }
                 }
 
                 // Blend Color Properties
-                foreach (string prop in colorProperties)
+                if (colorPropertyIDs != null && colorPropertyIDs.Length == colorProperties.Length)
                 {
-                    if (mat1.HasProperty(prop) && mat2.HasProperty(prop))
+                    for (int i = 0; i < colorPropertyIDs.Length; i++)
                     {
-                        Color col1 = mat1.GetColor(prop);
-                        Color col2 = mat2.GetColor(prop);
-                        runtimeSkyboxMaterial.SetColor(prop, Color.Lerp(col1, col2, blend));
+                        if (mat1.HasProperty(colorPropertyIDs[i]) && mat2.HasProperty(colorPropertyIDs[i]))
+                        {
+                            Color col1 = mat1.GetColor(colorPropertyIDs[i]);
+                            Color col2 = mat2.GetColor(colorPropertyIDs[i]);
+                            runtimeSkyboxMaterial.SetColor(colorPropertyIDs[i], Color.Lerp(col1, col2, blend));
+                        }
                     }
                 }
                 
-                DynamicGI.UpdateEnvironment(); // Necessary for GI to pick up the changes
+                // Throttle DynamicGI updates
+                if (Time.time - lastEnvironmentUpdateTime > ENVIRONMENT_UPDATE_INTERVAL)
+                {
+                    DynamicGI.UpdateEnvironment(); // Necessary for GI to pick up the changes
+                    lastEnvironmentUpdateTime = Time.time;
+                }
             }
         }
     }
