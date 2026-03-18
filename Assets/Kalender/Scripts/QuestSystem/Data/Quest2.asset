@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quest2
   m_EditorClassIdentifier: Assembly-CSharp::Kalender.QuestSystem.Quest
   id: 779b7605-db29-4a64-993b-6f1d5229fa95
-  title: Quest B
+  title: Quest 2
   description: 
   prerequisites:
   - {fileID: 11400000, guid: c26a24a799e09484d89cdd471ba8b303, type: 2}

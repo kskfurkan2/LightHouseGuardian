@@ -45,11 +45,13 @@ namespace Kalender.QuestSystem.Editor
             if (GUILayout.Button("Create New Quest"))
             {
                 CreateNewQuest();
+                GUIUtility.ExitGUI();
             }
             
             if (GUILayout.Button("Refresh List"))
             {
                 RefreshQuestList();
+                GUIUtility.ExitGUI();
             }
 
             GUILayout.Space(10);
@@ -73,6 +75,7 @@ namespace Kalender.QuestSystem.Editor
                      {
                          selectedQuest = allQuests[i];
                          GUI.FocusControl(null); 
+                         GUIUtility.ExitGUI();
                      }
                 }
             }
@@ -119,6 +122,7 @@ namespace Kalender.QuestSystem.Editor
                         $"Are you sure you want to delete '{selectedQuest.title}'?", "Yes", "No"))
                     {
                         DeleteQuest(selectedQuest);
+                        GUIUtility.ExitGUI();
                     }
                 }
             }

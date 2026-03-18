@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Quest1
   m_EditorClassIdentifier: Assembly-CSharp::Kalender.QuestSystem.Quest
   id: 4c59332d-97ba-405c-ba36-8fd7cd5f2407
-  title: Quest A
+  title: Quest 1
   description: 
   prerequisites: []
   rewardAmount: 0
-  state: 2
+  state: 1

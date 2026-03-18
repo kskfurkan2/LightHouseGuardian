@@ -12,6 +12,9 @@ TagManager:
   - Readable
   - Wood
   - OilPlant
+  - LightFire
+  - LightFireWood
+  - LightFireOil
   layers:
   - Default
   - TransparentFX

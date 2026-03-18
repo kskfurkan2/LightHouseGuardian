@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 470a40460dddbaf48822526617b193ed, type: 3}
-  m_Name: Quest 4
+  m_Name: Quest4
   m_EditorClassIdentifier: Assembly-CSharp::Kalender.QuestSystem.Quest
-  id: d0ab8388-be91-4f2b-84ac-d6d74ec330fe
-  title: Quest D
+  id: eca71b6d-cb83-4319-bda0-8ac000cb88c8
+  title: Quest 4
   description: 
   prerequisites:
-  - {fileID: 11400000, guid: eb9ab5ad8f2b946449e7a1882cdbfeec, type: 2}
+  - {fileID: 11400000, guid: 26aa8e71e66267349a252f7124ce1e4d, type: 2}
   rewardAmount: 0
-  state: 0
+  state: 3
